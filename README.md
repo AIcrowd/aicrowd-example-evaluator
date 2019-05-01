@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
 ```
 
-# Implmentation of ExampleEvaluator
+# Implementation of ExampleEvaluator
 
 You have implement an `ExampleEvaluator` class as described in the example below.
 
