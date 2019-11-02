@@ -29,7 +29,7 @@ class ExampleEvaluator:
     Do something with your submitted file to come up
     with a score and a secondary score.
 
-    if you want to report back an error to the user,
+    If you want to report back an error to the user,
     then you can simply do :
       `raise Exception("YOUR-CUSTOM-ERROR")`
 
@@ -40,6 +40,16 @@ class ExampleEvaluator:
         "score": np.random.random(),
         "score_secondary" : np.random.random()
     }
+    
+    media_dir = '/tmp/'
+
+    """
+    To add media to the result object such that it shows on the challenge leaderboard:
+    - Simply save the file at '/tmp/<filename>'
+    - Add the path of the media to the result object:
+        For images, add file path to _result_object["media_image_path"]
+        For videos, add file path to _result_object["media_video_path"]
+    """
     return _result_object
 
 if __name__ == "__main__":
