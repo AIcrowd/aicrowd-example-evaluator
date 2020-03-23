@@ -79,16 +79,18 @@ class ExampleEvaluator:
     submission_file_path = client_payload["submission_file_path"]
     aicrowd_submission_id = client_payload["aicrowd_submission_id"]
     aicrowd_participant_uid = client_payload["aicrowd_participant_id"]
-
+    
     submission = pd.read_csv(submission_file_path)
     # Or your preferred way to read your submission
 
     """
     Do something with your submitted file to come up
     with a score and a secondary score.
-    if you want to report back an error to the user,
+
+    If you want to report back an error to the user,
     then you can simply do :
       `raise Exception("YOUR-CUSTOM-ERROR")`
+
      You are encouraged to add as many validations as possible
      to provide meaningful feedback to your users
     """
@@ -96,6 +98,16 @@ class ExampleEvaluator:
         "score": np.random.random(),
         "score_secondary" : np.random.random()
     }
+    
+    media_dir = '/tmp/'
+
+    """
+    To add media to the result object such that it shows on the challenge leaderboard:
+    - Simply save the file at '/tmp/<filename>'
+    - Add the path of the media to the result object:
+        For images, add file path to _result_object["media_image_path"]
+        For videos, add file path to _result_object["media_video_path"]
+    """
     return _result_object
 
 if __name__ == "__main__":
@@ -107,13 +119,15 @@ if __name__ == "__main__":
     _client_payload["submission_file_path"] = "data/sample_submission.csv"
     _client_payload["aicrowd_submission_id"] = 1123
     _client_payload["aicrowd_participant_id"] = 1234
+    
     # Instaiate a dummy context
     _context = {}
     # Instantiate an evaluator
-    aicrowd_evaluator = ExampleEvaluator(answer_file_path, round=1)
+    aicrowd_evaluator = ExampleEvaluator(answer_file_path, round = 1)
     # Evaluate
     result = aicrowd_evaluator._evaluate(_client_payload, _context)
     print(result)
+
 ```
 
 # Author
