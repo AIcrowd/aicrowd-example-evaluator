@@ -45,10 +45,14 @@ class ExampleEvaluator:
 
     """
     To add media to the result object such that it shows on the challenge leaderboard:
-    - Simply save the file at '/tmp/<filename>'
+    - Save the file at '/tmp/<filename>'
     - Add the path of the media to the result object:
         For images, add file path to _result_object["media_image_path"]
         For videos, add file path to _result_object["media_video_path"]
+    
+    For example, 
+    _result_object["media_image_path"] = '/tmp/submission-image.png'
+    _result_object["media_video_path"] = '/tmp/submission-video.mp4'
     """
     return _result_object
 
