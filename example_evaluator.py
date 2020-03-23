@@ -48,11 +48,13 @@ class ExampleEvaluator:
     - Save the file at '/tmp/<filename>'
     - Add the path of the media to the result object:
         For images, add file path to _result_object["media_image_path"]
-        For videos, add file path to _result_object["media_video_path"]
+        For videos, add file path to _result_object["media_video_path"] and
+                    add file path to _result_object["media_video_thumb_path"] (for small video going on the leaderboard)
     
     For example, 
     _result_object["media_image_path"] = '/tmp/submission-image.png'
     _result_object["media_video_path"] = '/tmp/submission-video.mp4'
+    _result_object["media_video_thumb_path"] = '/tmp/submission-video-small.mp4'
     """
     return _result_object
 
