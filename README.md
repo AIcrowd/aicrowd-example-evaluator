@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 * Update the [aicrowd.yaml](aicrowd.yaml) file with the following values
   - `challenge.name` : This is the name of your challenge.
-  - `challenge.temlate` : This is the name of the template being used by us to create the evaluator. Do not change its value from `simple-evaluator`
+  - `challenge.template` : This is the name of the template being used by us to create the evaluator. Do not change its value from `simple-evaluator`
   - `challenge.authors` : Information about the authors of the evaluator
   - `challenge.version` : Version number of your evaluator
 
