@@ -1,1 +1,1 @@
-from .example_evaluator import ExampleEvaluator
+from .evaluator import AIcrowdEvaluator

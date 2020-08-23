@@ -1,0 +1,7 @@
+challenge:
+  name: challenge_name
+  template: simple-evaluator
+  authors:
+  - name: Sharada Mohanty
+    email: mohanty@aicrowd.com
+  version: '0.1'
