@@ -1,15 +1,14 @@
 import pandas as pd
 import numpy as np
 
-class ExampleEvaluator:
-  def __init__(self, answer_file_path, round=1):
+class AIcrowdEvaluator:
+  def __init__(self, ground_truth_path, **kwargs):
     """
-    `round` : Holds the round for which the evaluation is being done. 
-    can be 1, 2...upto the number of rounds the challenge has.
-    Different rounds will mostly have different ground truth files.
+    This is the AIcrowd evaluator class which will be used for the evaluation.
+    Please note that the class name should be `AIcrowdEvaluator`
+    `ground_truth` : Holds the path for the ground truth which is used to score the submissions.
     """
-    self.answer_file_path = answer_file_path
-    self.round = round
+    self.ground_truth_path = ground_truth_path
 
   def _evaluate(self, client_payload, _context={}):
     """
@@ -56,22 +55,28 @@ class ExampleEvaluator:
     _result_object["media_video_path"] = '/tmp/submission-video.mp4'
     _result_object["media_video_thumb_path"] = '/tmp/submission-video-small.mp4'
     """
+
+    assert "score" in _result_object
+    assert "score_secondary" in _result_object
+
     return _result_object
 
 if __name__ == "__main__":
     # Lets assume the the ground_truth is a CSV file
     # and is present at data/ground_truth.csv
     # and a sample submission is present at data/sample_submission.csv
-    answer_file_path = "data/ground_truth.csv"
+    ground_truth_path = "data/ground_truth.csv"
     _client_payload = {}
     _client_payload["submission_file_path"] = "data/sample_submission.csv"
-    _client_payload["aicrowd_submission_id"] = 1123
+    _client_payload["aicrowd_submission_id"] = 1234
     _client_payload["aicrowd_participant_id"] = 1234
     
     # Instaiate a dummy context
     _context = {}
+
     # Instantiate an evaluator
-    aicrowd_evaluator = ExampleEvaluator(answer_file_path)
+    aicrowd_evaluator = AIcrowdEvaluator(ground_truth_path)
+    
     # Evaluate
     result = aicrowd_evaluator._evaluate(_client_payload, _context)
     print(result)
