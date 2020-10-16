@@ -98,6 +98,17 @@ class AIcrowdEvaluator:
         "score_secondary" : np.random.random()
     }
     
+    """
+    You can also add a private_score and private_score_secondary.
+    The private scores will be relvealed only when the challenge gets over.
+
+    To do so, simple add them to the "meta" field of the _result_object like:
+    
+    _result_object["meta"] = {
+        "private_score" = np.random.random(),
+        "private_score_secondary" = np.random.random()
+    }
+    """
     media_dir = '/tmp/'
 
     """
@@ -113,6 +124,7 @@ class AIcrowdEvaluator:
     _result_object["media_video_path"] = '/tmp/submission-video.mp4'
     _result_object["media_video_thumb_path"] = '/tmp/submission-video-small.mp4'
     """
+
 
     assert "score" in _result_object
     assert "score_secondary" in _result_object
